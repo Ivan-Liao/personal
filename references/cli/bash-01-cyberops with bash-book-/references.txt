@@ -1,0 +1,68 @@
+# conditional template1
+if cmd
+then
+ some cmds
+else
+ other cmds
+fi
+
+# conditional example 2
+if cd /tmp
+then
+ echo "here is what is in /tmp:"
+ ls -l
+fi
+
+
+# conditional example 2 with pipe
+if ls | grep pdf
+then
+ echo "found one or more pdf files here"
+else
+ echo "no pdf files found"
+fi
+
+
+# conditional example 3 compound command 
+if [[ -e $FILENAME ]]
+then
+ echo $FILENAME exists
+fi
+
+
+# conditional example 4 compound command
+if [[ $VAL -lt $MIN ]]
+then
+ echo "value is too small"
+fi
+
+
+# conditional example 5 compound command ints
+if (( VAL < 12 ))
+then
+ echo "value $VAL is too small"
+fi
+
+
+# conditional example 6 multiple statements with ||
+[[ -d $DIR ]] || echo "error: no such directory: $DIR" ; exit
+#What you probably want is this:
+[[ -d $DIR ]] || { echo "error: no such directory: $DIR" ; exit ; }
+
+
+# while loop example 1
+i=0
+while (( i < 1000 ))
+do
+ echo $i
+ le
+
+
+# while loop example 2
+# checks for pdf files starting from leaf directory
+while ls | grep -q pdf
+do
+ echo -n 'there is a file with pdf in its name here: '
+ pwd
+ cd ..
+done
