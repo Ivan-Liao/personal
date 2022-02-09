@@ -1,0 +1,45 @@
+#Aliases
+
+alias code="'/c/Users/Festi/AppData/Local/Programs/Microsoft VS Code/Code.exe'"
+#sublime text
+alias sub="sublime_text.exe"
+alias gb="/git-bash.exe & > /dev/null 2&>1"
+alias pyc="'/c/Program Files/JetBrains/PyCharm Community Edition 2020.3.1/bin/pycharm64.exe'"
+alias cpwd="pwd | tr -d '\n' | clip && echo 'pwd copied to clipboard'"
+alias pydir="cd ~/repos/refs/python"
+
+alias tmp1="code '/c/all/proj/lifepack-recover'"
+alias proj="cd ~/repos/refs/projects"
+alias ref="cd ~/repos/refs"
+
+#makes directory and changes to new directory
+mkcd ()
+{
+  mkdir -p -- "$1" && cd -P -- "$1"
+}
+
+# touch and open in vs code
+tocode ()
+{
+  touch "$1" && code "$1"
+}
+export NVM_DIR="$HOME/.nvm"
+export ykw="/d/Downloads/Others/MMCE_Win32/ecchi"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# venv stuff
+export WORKON_HOME=$HOME/.virtualenvs   # Optional
+export PROJECT_HOME=$HOME/projects      # Optional
+# source /usr/local/bin/virtualenvwrapper.sh
+
+
+# essentia google analytics stuff
+export GOOGLE_APPLICATION_CREDENTIALS="/c/ea/Quickstart-97ec07fcd4ef.json"
+
+# OCR
+# export TESSDATA_PREFIX="'/c/Users/Festi/python-virtual-environments/table_ocr/Lib/site-packages/table_ocr/tessdata'"
+
+alias pdfimages="'C:\Program Files\poppler-20.09.0\utils\pdfimages.1'"
+
+. /c/ProgramData/Miniconda3/etc/profile.d/conda.sh
