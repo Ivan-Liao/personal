@@ -2,6 +2,7 @@
 - [Reset all files to specific commit, alters commit history](#reset-all-files-to-specific-commit-alters-commit-history)
 - [Revert changes made in a specific commit, doesn't alter commit history](#revert-changes-made-in-a-specific-commit-doesnt-alter-commit-history)
 - [Change most recent commit comment](#change-most-recent-commit-comment)
+- [Git rebase -i](#git-rebase--i)
 
 # Setup
 1. if needed run 
@@ -41,3 +42,12 @@ git revert <commit hash>
 ```
 git commit -amend -m 'previous commit message amended'
 ```
+
+# Git rebase -i
+```
+git rebase -i <commit hash>
+```
+1. Allows rebasing from current commit to the commit given as an argument
+2. You can drop specific commits
+3. You can reword commit message
+4. You can edit specific commits
