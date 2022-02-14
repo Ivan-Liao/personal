@@ -6,4 +6,4 @@
 [user]
     email = "<email_to_set_on_this_repo>"
 ```
-3. Enter access token upon first commit with the new credentials
+3. You may need to enter an access token upon first commit with the new credentials
