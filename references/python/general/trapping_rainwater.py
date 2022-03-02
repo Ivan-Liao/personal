@@ -39,8 +39,9 @@ def find_water_simple(arr, n):
     for i in range( 1, n):
         left[i] = max(left[i-1], arr[i])
 
-    # Fill right array
-    right[n-1] = arr[n-1]
+    # Fill last element of right array with last element of input arr
+    right[-1] = arr[-1]
+    # Loops backwards starting from the second to last element of the right array to fill the rest of the right array.
     for i in range(n-2, -1, -1):
         right[i] = max(right[i+1], arr[i])
 
