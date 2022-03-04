@@ -92,8 +92,14 @@ def find_water_better(arr,n):
 # Input: [0,1,0,2,1,0,1,3,2,1,2,1]
 # Output: 6
 
-input = [0,1,0,2,1,0,1,3,2,1,2,1]
-length = len(input)
+# input = [0,1,0,2,1,0,1,3,2,1,2,1]
+# input2 = [0,2,0,1,1,0,1,3,2,1,2,1]
+input3 = [0,2,0,1,3,0,1,3,2,1,2,1]
+length = 12
 
-print(find_water_simple(input,length))
-print(find_water_better(input,length))
+# print(find_water_simple(input,length))
+# print(find_water_better(input,length))
+# print(find_water_simple(input2,length))
+# print(find_water_better(input2,length))
+print(find_water_simple(input3,length))
+print(find_water_better(input3,length))
