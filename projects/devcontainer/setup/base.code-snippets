@@ -1,0 +1,138 @@
+{
+	// Webtool to generate snippets  https://snippet-generator.app/?description=&tabtrigger=&snippet=&mode=vscode
+	// 
+	// Place your snippets for sql here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Create Table as Stored Procedure Quick": {
+        "prefix": "ctasq",
+        "body": "CALL vh_etl_admin.create_table_as(\n    seed := '{{seed}}'\n    ,table_name              := '${1:REPLACE_WITH_NAME_OF_TABLE_THAT_IS_TO_BE_CREATED}' --example {{staging_schema}}.{{custom_roster_deduped}}_for_descriptive\n    ,table_query             := $sql$\n${2:REPLACE_WITH_QUERY}\n$sql$\n);",
+        "description": "This snippet is for the vh_etl_admin.create_table_as function, streamlined for when you don't need too much functionality"
+	},
+	"show_nondistinct_rows": {
+		"prefix": "dup",
+		"body": [
+			"SELECT * FROM (",
+			"   select *",
+			", row_number() over(partition by REPLACE_WITH_FIELDS_TO_BE_CONSIDERED_DUPLICATE) as rownum",
+			"FROM  REPLACE_WITH_TABLE)",
+			"WHERE rownum > 1;"
+		  ],
+		"description": "This query will show the rows that are considered duplicates given a certain combination of fields.  Note that this query does not show the duplicate value where rownum = 1."
+	},
+	"Simple select statement, usually used to see example values.": {
+		"prefix": "sel",
+		"body": [
+		  "SELECT *",
+		  "FROM ${1:REPLACE_WITH_TABLE_NAME}",
+		  "LIMIT 20;"
+		],
+		"description": "Simple select statement, usually used to see columns and example values."
+	  },
+	"See columns in a table": {
+		"prefix": "cols",
+		"body": [
+		  "SELECT COLUMN_NAME",
+		  "      ,DATA_TYPE",
+		  "FROM INFORMATION_SCHEMA.COLUMNS",
+		  "WHERE TABLE_SCHEMA = '${1:REPLACE_WITH_SCHEMA_NAME}' -- example: staging_lha",
+		  "    AND TABLE_NAME = '${2:REPLACE_WITH_TABLE_NAME}'; -- example: air_particip_tin_by_year"
+		],
+		"description": "See columns in a table"
+	  },
+	"Create Table as Stored Procedure": {
+		"prefix": "ctas",
+		"body": [
+		  "CALL vh_etl_admin.create_table_as(",
+		  "    seed := '{{seed}}'",
+		  "    ,table_name                      := '' -- example {{staging_schema}}.{{custom_roster_deduped}}_for_descriptive",
+		  "    ,drop_if_exists_flag             := TRUE",
+		  "    ,use_cstore_flag                 := TRUE",
+		  "    ,ignore_execution_errors_flag    := FALSE",
+		  "    ,ignore_constraint_errors_flag   := FALSE",
+		  "    ,backup_table_flag               := FALSE",
+		  "    ,empty_check_flag                := FALSE",
+		  "    ,log_row_count                   := TRUE",
+		  "    ,primary_key_col_regex           := '' -- example '^(particip_year|service_year|asof_quarter_sort)$'",
+		  "    ,null_check_col_regex            := ''",
+		  "    ,btree_index_col_regex           := ''",
+		  "    ,completeness_check_table        := ''",
+		  "    ,completeness_check_key_regex    := ''",
+		  "    ,table_query             := sql$",
+		  "REPLACE_WITH_QUERY",
+		  "sql$",
+		  ");"
+		],
+		"description": "This snippet is for the vh_etl_admin.create_table_as function"
+	  },
+	"vh_etl_admin.smart_table_insert": {
+		"prefix": "sti",
+		"body": [
+		  "CALL vh_etl_admin.create_table_as(",
+		  "    seed := '{{seed}}'",
+		  "    ,insert_from                      := '' -- example {{staging_schema}}.{{custom_roster_deduped}}_for_descriptive",
+		  "    ,insert_into                      := ''",
+		  "    ,add_cols                         := FALSE",
+		  "    ,create_into_table                := FALSE",
+		  "    ,all_cols_match_check_flag        := FALSE",
+		  "    ,select_col_regex                 := ''",
+		  "    ,query_suffix                     := ''",
+		  "    ,ignore_execution_errors_flag     := FALSE",
+		  "    ,ignore_constraint_errors_flag    := FALSE",
+		  "    ,primary_key_col_regex            := ''",
+		  "    ,null_check_col_regex             := ''",
+		  "    ,into_cols_exist_check_regex      := ''",
+		  ");"
+		],
+		"description": "vh_etl_admin.smart_table_insert"
+	  },
+	"vh_etl_admin.drop_object": {
+		"prefix": "dobj",
+		"body": [
+		  "SELECT vh_etl_admin.drop_object('${1}') -- example: analytics_app.manual_denominator_grouped;"
+		],
+		"description": "vh_etl_admin.drop_object"
+		},
+	"Template for creating a new python function": {
+		"prefix": "pyfunc",
+		"body": [
+			"def ${1:function_name}():",
+			"    \"\"\"",
+			"    ${2:Description}",
+			"",
+			"    Inputs: ",
+			"      ${3}",
+			"",
+			"    Outputs:",
+			"      ${4}",
+			"    \"\"\"",
+			"    pass"
+		],
+		"description": "Template for creating a new python function"
+	},
+	"Find tables matching a regex": {
+		"prefix": "tables",
+		"body": [
+		  "SELECT",
+		  "     quote_ident(table_schema ) || '.' ||  quote_ident(table_name)                     AS schema_table_name",
+		  "FROM",
+		  "      information_schema.columns  as info",
+		  "WHERE",
+		  "      table_schema ~* '.*${1:SCHEMA_NAME}.*'",
+		  "  AND table_name   ~* '.*${2:TABLE_NAME}.*'",
+		  "  GROUP BY schema_table_name",
+		  "  ORDER BY schema_table_name;"
+		],
+		"description": "Find tables matching a regex"
+	  }
+}

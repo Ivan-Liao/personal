@@ -1,0 +1,63 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "alt+shift+p",
+        "command": "python.execInTerminal"
+    },
+    {
+        "key": "alt+s alt+c",
+        "command": "sqltools.executeCurrentQuery"
+    },
+    {
+        "key": "alt+m alt+p",
+        "command": "markdown.showPreview",
+        "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+    },
+    {
+        "key": "alt+s alt+h",
+        "command": "sqltools.executeQuery",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+k",
+        "command": "workbench.debug.viewlet.action.removeAllBreakpoints"
+    },
+    {
+        "key": "shift+cmd+z",
+        "command": "redo"
+    },
+    {
+        "key": "cmd+y",
+        "command": "redo"
+    },
+    {
+        "key": "shift+cmd+z",
+        "command": "-redo"
+    },
+    {
+        "key": "alt+shift+r",
+        "command": "workbench.action.closeEditorsToTheRight"
+    },
+    {
+        "key": "alt+shift+c",
+        "command": "workbench.files.action.collapseExplorerFolders"
+    },
+    {
+        "key": "shift+alt+n",
+        "command": "explorer.newFile"
+    },
+    {
+        "key": "shift+alt+m",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "shift+tab",
+        "command": "-tab",
+        "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !inSnippetMode && !suggestWidgetVisible"
+    },
+    {
+        "key": "tab",
+        "command": "tab",
+        "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !inSnippetMode && !suggestWidgetVisible"
+    }
+]
