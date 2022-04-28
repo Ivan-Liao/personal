@@ -1,0 +1,4 @@
+- [ ] nulls
+- [ ] expected categorical
+- [ ] unexpected special characters
+- [ ] duplication
