@@ -5,4 +5,5 @@
 - [ ] resource estimation (cost, time, manpower, etc.)
 - [ ] overview
 - [ ] roadmap
+- [ ] success metrics
 - [ ] out of scope / nice to haves / future build
