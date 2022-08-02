@@ -1,5 +1,8 @@
-# Test Types
+# Transformations
 - [ ] null
+- [ ] duplication (dedupe in union or by rank with ordering logic)
+- [ ] datetime conversions
+- [ ] trimming
 - [ ] categorical values
 - [ ] uniqueness (no duplication of primary key or column value combination)
 - [ ] completeness (presence of primary key in result set from a source set)
