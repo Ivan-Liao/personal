@@ -1,5 +1,5 @@
 # Transformations
-- [ ] null
+- [ ] null ratio (0-100%)
 - [ ] duplication (dedupe in union or by rank with ordering logic)
 - [ ] datetime conversions
 - [ ] trimming
@@ -12,7 +12,6 @@
 - [ ] expected value ranges (can be based on values in other columns, may have dependency considerations)
 - [ ] data type conversion
 - [ ] format check (regex)
-- [ ] 
 
 # Additional considerations
 - Implement acceptance thresholds
